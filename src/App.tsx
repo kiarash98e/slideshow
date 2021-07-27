@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import SwiperCore,{Navigation,Pagination,Autoplay} from 'swiper'
+import {Swiper,SwiperSlide} from 'swiper/react'
+
+import 'swiper/swiper-bundle.min.css'
+import './App.css'
+
+SwiperCore.use([Navigation,Pagination,Autoplay])
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Swiper
+        speed={700}
+        allowTouchMove={true}
+        spaceBetween={20}
+        slidesPerView={1}
+        autoplay
+        loop
+        navigation
+        pagination={{clickable:true}}
+        scrollbar={{draggable:true}}
+        effect={'slide'}
+      >
+        <SwiperSlide style={{height:'100px'}}>slide 1</SwiperSlide>
+        <SwiperSlide style={{height:'100px'}}>slide 2</SwiperSlide>
+        <SwiperSlide style={{height:'100px'}}>slide 3</SwiperSlide>
+        <SwiperSlide style={{height:'100px'}}>slide 4</SwiperSlide>
+        <SwiperSlide style={{height:'100px'}}>slide 5</SwiperSlide>
+      </Swiper>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
